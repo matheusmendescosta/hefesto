@@ -8,7 +8,7 @@ const DashboardPage = () => {
   const { toggleSidebar, open } = useSidebar();
 
   return (
-    <div className="flex flex-col h-screen w-full border-2 rounded-2xl overflow-hidden bg-gray-800">
+    <div className="flex flex-col h-screen w-full border-2 overflow-hidden bg-gray-800">
       {/* Header */}
       <header className="border-b border-gray-800 bg-gradient-to-r from-gray-900 via-gray-850 to-gray-900 p-6 shadow-sm">
         <div className="flex items-center justify-between">

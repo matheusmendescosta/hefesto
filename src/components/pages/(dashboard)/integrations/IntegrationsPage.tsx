@@ -9,6 +9,7 @@ interface Integration {
   id: string;
   name: string;
   description: string;
+  //eslint-disable-next-line
   icon: any;
   status: 'connected' | 'disconnected';
   connectedSince?: string;
@@ -90,7 +91,7 @@ const IntegrationsPage = () => {
   const connectedCount = integrations.filter((i) => i.status === 'connected').length;
 
   return (
-    <div className="flex flex-col h-screen w-full bg-gray-900">
+    <div className="flex flex-col h-screen w-full bg-gray-900 border-2 overflow-hidden">
       {/* Header */}
       <header className="border-b border-gray-800 bg-gradient-to-r from-gray-900 via-gray-850 to-gray-900 p-6 shadow-sm">
         <div className="flex items-center justify-between">

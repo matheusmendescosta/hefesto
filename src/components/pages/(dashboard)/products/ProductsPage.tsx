@@ -41,7 +41,7 @@ const ProductsPage = () => {
       description: null,
       price: '350',
       sku: null,
-      stock: 9999,
+      stock: 100,
       createdAt: '2025-12-16T16:23:45.482Z',
       updatedAt: '2025-12-16T16:23:45.482Z',
       productOptionals: [
@@ -67,6 +67,38 @@ const ProductsPage = () => {
         },
       ],
     },
+    {
+      id: 'f298e138-d832-4720-a0cf-004fbdc0000',
+      name: 'Armazenamento Extra',
+      description: null,
+      price: '350',
+      sku: null,
+      stock: 100,
+      createdAt: '2025-12-16T16:23:45.482Z',
+      updatedAt: '2025-12-16T16:23:45.482Z',
+      productOptionals: [
+        {
+          id: '0447b29b-011b-448f-8748-43f87dd194ef',
+          name: '+50 GB',
+          description: null,
+          price: '75',
+          selected: false,
+          productId: 'f298e138-d832-4720-a0cf-004fbdc0000',
+          createdAt: '2025-12-16T16:23:45.482Z',
+          updatedAt: '2025-12-16T16:23:45.482Z',
+        },
+        {
+          id: '0fd81be8-1dc6-47d0-9ef2-8e559fd7d9f0',
+          name: '+100 GB',
+          description: null,
+          price: '150',
+          selected: false,
+          productId: 'f298e138-d832-4720-a0cf-004fbdc0000',
+          createdAt: '2025-12-16T16:23:45.482Z',
+          updatedAt: '2025-12-16T16:23:45.482Z',
+        },
+      ],
+    },
   ];
 
   const toggleExpand = (productId: string) => {
@@ -80,7 +112,7 @@ const ProductsPage = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full bg-gray-900">
+    <div className="flex flex-col h-screen w-full bg-gray-900 border-2 overflow-hidden">
       {/* Header */}
       <header className="border-b border-gray-800 bg-gradient-to-r from-gray-900 via-gray-850 to-gray-900 p-6 shadow-sm">
         <div className="flex items-center justify-between">

@@ -1,9 +1,9 @@
 'use client';
 
-import { useSidebar } from '@/components/ui/sidebar';
-import { ChevronRight, FileText, Plus, Edit2, Trash2, Eye, ChevronDown, DollarSign, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useSidebar } from '@/components/ui/sidebar';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { ChevronDown, ChevronRight, Edit2, Eye, FileText, Plus, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 
 interface Client {
@@ -26,7 +26,9 @@ interface QuoteItem {
   quantity: number;
   unitPrice: string;
   total: string;
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
   service: any | null;
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
   product: any | null;
 }
 
@@ -153,7 +155,7 @@ const QuotesPage = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full bg-gray-900">
+    <div className="flex flex-col h-screen w-full bg-gray-900 border-2 overflow-hidden">
       {/* Header */}
       <header className="border-b border-gray-800 bg-gradient-to-r from-gray-900 via-gray-850 to-gray-900 p-6 shadow-sm">
         <div className="flex items-center justify-between">
