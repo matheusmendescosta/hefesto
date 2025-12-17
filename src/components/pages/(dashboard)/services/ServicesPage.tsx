@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useSidebar } from '@/components/ui/sidebar';
 import { ChevronRight, LayoutDashboard, Wrench, Plus, Edit2, Trash2, Eye, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -379,10 +380,12 @@ const ServicesPage = () => {
               <p className="text-sm text-gray-500 mt-1">Gerenciamento de serviços oferecidos</p>
             </div>
           </div>
-          <Button className="gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium transition-all shadow-lg hover:shadow-blue-500/50">
-            <Plus className="h-4 w-4" />
-            Novo Serviço
-          </Button>
+          <Link href="/services/new">
+            <Button className="gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium transition-all shadow-lg hover:shadow-blue-500/50">
+              <Plus className="h-4 w-4" />
+              Novo Serviço
+            </Button>
+          </Link>
         </div>
       </header>
 

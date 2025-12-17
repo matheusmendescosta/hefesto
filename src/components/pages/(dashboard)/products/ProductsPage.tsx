@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useSidebar } from '@/components/ui/sidebar';
 import { ChevronRight, Package, Plus, Edit2, Trash2, Eye, ChevronDown, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -131,10 +132,12 @@ const ProductsPage = () => {
               <p className="text-sm text-gray-500 mt-1">Gerenciamento de produtos oferecidos</p>
             </div>
           </div>
-          <Button className="gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium transition-all shadow-lg hover:shadow-blue-500/50">
-            <Plus className="h-4 w-4" />
-            Novo Produto
-          </Button>
+          <Link href="/products/new">
+            <Button className="gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium transition-all shadow-lg hover:shadow-blue-500/50">
+              <Plus className="h-4 w-4" />
+              Novo Produto
+            </Button>
+          </Link>
         </div>
       </header>
 

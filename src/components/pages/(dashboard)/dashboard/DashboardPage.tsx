@@ -3,6 +3,7 @@
 import { useSidebar } from '@/components/ui/sidebar';
 import { LayoutDashboard, BarChart3, Settings, ChevronRight, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { SectionCards } from './DashboardSections';
 
 const DashboardPage = () => {
   const { toggleSidebar, open } = useSidebar();
@@ -32,33 +33,8 @@ const DashboardPage = () => {
 
       {/* Content Area */}
       <main className="flex-1 overflow-auto bg-gray-900 p-6">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {/* Card 1 */}
-          <div className="rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-lg hover:shadow-xl hover:border-gray-600 transition-all">
-            <div className="flex items-center gap-3 mb-4">
-              <LayoutDashboard className="h-6 w-6 text-blue-400" />
-              <h2 className="text-lg font-semibold text-white">Bem-vindo</h2>
-            </div>
-            <p className="text-gray-400">Clique no ícone de menu para abrir/fechar o sidebar</p>
-          </div>
-
-          {/* Card 2 */}
-          <div className="rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-lg hover:shadow-xl hover:border-gray-600 transition-all">
-            <div className="flex items-center gap-3 mb-4">
-              <BarChart3 className="h-6 w-6 text-green-400" />
-              <h2 className="text-lg font-semibold text-white">Análises</h2>
-            </div>
-            <p className="text-gray-400">Visualize estatísticas e métricas do seu negócio</p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-lg hover:shadow-xl hover:border-gray-600 transition-all">
-            <div className="flex items-center gap-3 mb-4">
-              <Settings className="h-6 w-6 text-purple-400" />
-              <h2 className="text-lg font-semibold text-white">Configurações</h2>
-            </div>
-            <p className="text-gray-400">Gerencie as configurações do seu sistema</p>
-          </div>
+        <div className="max-w-7xl mx-auto">
+          <SectionCards />
         </div>
       </main>
     </div>
