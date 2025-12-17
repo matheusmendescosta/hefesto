@@ -1,12 +1,22 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { BookOpen, Bot, Command, FileChartLine, Frame, LifeBuoy, Map, PieChart, Send, Settings2, SquareTerminal } from 'lucide-react';
+import {
+  Bot,
+  FileChartLine,
+  Frame,
+  LifeBuoy,
+  Map,
+  PieChart,
+  Send,
+  Settings2,
+  SquareTerminal
+} from "lucide-react";
+import * as React from "react";
 
-import { NavMain } from '@/components/nav-main';
-import { NavProjects } from '@/components/nav-projects';
-import { NavSecondary } from '@/components/nav-secondary';
-import { NavUser } from '@/components/nav-user';
+import { NavMain } from "@/components/layout/nav-main";
+import { NavProjects } from "@/components/layout/nav-projects";
+import { NavSecondary } from "@/components/layout/nav-secondary";
+import { NavUser } from "@/components/layout/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -15,47 +25,47 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/components/ui/sidebar';
+} from "@/components/ui/sidebar";
 
 const data = {
   user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
+    name: "shadcn",
+    email: "m@example.com",
+    avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
     {
-      title: 'Orçamentos',
-      url: '#',
+      title: "Orçamentos",
+      url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: 'Serviços',
-          url: '/services',
+          title: "Serviços",
+          url: "/services",
         },
         {
-          title: 'Produtos',
-          url: '/products',
+          title: "Produtos",
+          url: "/products",
         },
       ],
     },
     {
-      title: 'Categorias',
-      url: '#',
+      title: "Categorias",
+      url: "#",
       icon: Bot,
       items: [
         {
-          title: 'Produtos',
-          url: '#',
+          title: "Produtos",
+          url: "#",
         },
         {
-          title: 'Serviços',
-          url: '#',
+          title: "Serviços",
+          url: "#",
         },
         {
-          title: 'Clientes',
-          url: '#',
+          title: "Clientes",
+          url: "#",
         },
       ],
     },
@@ -83,13 +93,13 @@ const data = {
     //   ],
     // },
     {
-      title: 'Configurações',
-      url: '#',
+      title: "Configurações",
+      url: "#",
       icon: Settings2,
       items: [
         {
-          title: 'Integrações',
-          url: '#',
+          title: "Integrações",
+          url: "#",
         },
         // {
         //   title: 'Team',
@@ -108,30 +118,30 @@ const data = {
   ],
   navSecondary: [
     {
-      title: 'Support',
-      url: '#',
+      title: "Support",
+      url: "#",
       icon: LifeBuoy,
     },
     {
-      title: 'Feedback',
-      url: '#',
+      title: "Feedback",
+      url: "#",
       icon: Send,
     },
   ],
   projects: [
     {
-      name: 'Dashboard',
-      url: '/dashboard',
+      name: "Dashboard",
+      url: "/dashboard",
       icon: Frame,
     },
     {
-      name: 'Orçamentos',
-      url: '/quotes',
+      name: "Orçamentos",
+      url: "/quotes",
       icon: PieChart,
     },
     {
-      name: 'Produtos',
-      url: '/products',
+      name: "Produtos",
+      url: "/products",
       icon: Map,
     },
   ],
