@@ -4,7 +4,7 @@ import { useSidebar } from '@/components/ui/sidebar';
 import { ChevronRight, Zap, Plus, Unlink, Settings, CheckCircle2, AlertCircle, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { ContaAzulIntegrationCard } from '@/components/integrations/ContaAzulIntegrationCard';
+// import { ContaAzulIntegrationCard } from '@/components/integrations/ContaAzulIntegrationCard';
 
 interface Integration {
   id: string;
@@ -144,9 +144,9 @@ const IntegrationsPage = () => {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           {integrations.map((integration) => {
             // Usar componente real para Conta Azul
-            if (integration.useRealIntegration && integration.id === 'conta-azul') {
-              return <ContaAzulIntegrationCard key={integration.id} />;
-            }
+            // if (integration.useRealIntegration && integration.id === 'conta-azul') {
+            //   return <ContaAzulIntegrationCard key={integration.id} />;
+            // }
 
             const IconComponent = integration.icon;
             return (
