@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -55,8 +56,11 @@ const ProductsPage = () => {
 
   console.log("productsApi", products);
   return (
-    <div className="flex flex-col h-screen w-full bg-gray-900 border-2 overflow-hidden">
+    <div className="flex flex-col h-screen w-full bg-gray-900 overflow-hidden">
       <main className="flex-1 overflow-auto bg-gray-900 p-6">
+        <Link href="/products/new">
+          <Button className="mb-6">Novo Produto</Button>
+        </Link>
         <div className="w-full rounded-2xl border border-gray-700 bg-gray-800 overflow-hidden">
           <Table className="w-full">
             <TableHeader className="bg-gray-750 hover:bg-gray-750">

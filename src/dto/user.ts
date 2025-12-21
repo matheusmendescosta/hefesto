@@ -27,3 +27,20 @@ export type Product = {
   updatedAt: string;
   productOptionals: ProductOptional[];
 };
+
+export type ServiceOption = {
+  id: string;
+  name: string;
+  description: string | null;
+  price: string;
+};
+
+export type Service = {
+  id: string;
+  name: string;
+  description: string | null;
+  price: string;
+  createdAt: string;
+  updatedAt: string;
+  serviceOptions: ServiceOption[];
+};

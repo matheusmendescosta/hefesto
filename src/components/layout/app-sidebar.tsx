@@ -33,17 +33,13 @@ const data = {
   navMain: [
     {
       title: "Orçamentos",
-      url: "#",
+      url: "/quotes",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "Orçamentos Enviados",
-          url: "#",
-        },
-        {
-          title: "Orçamentos Aprovados",
-          url: "#",
+          title: "Novo Orçamento",
+          url: "/quotes/new",
         },
       ],
     },
@@ -150,7 +146,7 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { user } = useContext(UserContext);
-  
+
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>

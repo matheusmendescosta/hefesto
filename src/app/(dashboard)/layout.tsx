@@ -1,6 +1,6 @@
 import { authOptions } from "@/auth/auth-options";
 import { AppSidebar } from "@/components/layout/app-sidebar";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AuthProvider } from "@/providers/auth-provider";
 import { getServerSession, Session } from "next-auth";
 
@@ -35,7 +35,12 @@ const DashboardLayout = async ({
     <AuthProvider user={currentUser}>
       <SidebarProvider>
         <AppSidebar />
-        <main className="flex-1 overflow-hidden w-full">{children}</main>
+        <main className="flex-1 overflow-hidden w-full flex flex-col">
+          <div className="flex items-center p-1">
+            <SidebarTrigger />
+          </div>
+          <div className="flex-1 overflow-auto">{children}</div>
+        </main>
       </SidebarProvider>
     </AuthProvider>
   );
