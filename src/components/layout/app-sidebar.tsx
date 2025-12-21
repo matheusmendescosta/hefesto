@@ -1,12 +1,24 @@
-'use client';
+"use client";
 
-import { Bot, FileChartLine, Frame, LifeBuoy, Map, PieChart, Send, Settings2, SquareTerminal } from 'lucide-react';
-import * as React from 'react';
+import {
+  Bot,
+  FileChartLine,
+  Frame,
+  LifeBuoy,
+  Map,
+  PieChart,
+  Send,
+  Settings2,
+  SquareTerminal,
+} from "lucide-react";
+import * as React from "react";
+import { useContext } from "react";
 
-import { NavMain } from '@/components/layout/nav-main';
-import { NavProjects } from '@/components/layout/nav-projects';
-import { NavSecondary } from '@/components/layout/nav-secondary';
-import { NavUser } from '@/components/layout/nav-user';
+import { NavMain } from "@/components/layout/nav-main";
+import { NavProjects } from "@/components/layout/nav-projects";
+import { NavSecondary } from "@/components/layout/nav-secondary";
+import { NavUser } from "@/components/layout/nav-user";
+import { UserContext } from "@/providers/user-provider";
 import {
   Sidebar,
   SidebarContent,
@@ -15,47 +27,42 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/components/ui/sidebar';
+} from "@/components/ui/sidebar";
 
 const data = {
-  user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
-  },
   navMain: [
     {
-      title: 'Orçamentos',
-      url: '#',
+      title: "Orçamentos",
+      url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: 'Orçamentos Enviados',
-          url: '#',
+          title: "Orçamentos Enviados",
+          url: "#",
         },
         {
-          title: 'Orçamentos Aprovados',
-          url: '#',
+          title: "Orçamentos Aprovados",
+          url: "#",
         },
       ],
     },
     {
-      title: 'Categorias',
-      url: '#',
+      title: "Categorias",
+      url: "#",
       icon: Bot,
       items: [
         {
-          title: 'Produtos',
-          url: '/products',
+          title: "Produtos",
+          url: "/products",
         },
         {
-          title: 'Serviços',
-          url: '/services',
+          title: "Serviços",
+          url: "/services",
         },
         {
-          title: 'Clientes',
-          url: '/clients',
+          title: "Clientes",
+          url: "/clients",
         },
       ],
     },
@@ -83,17 +90,17 @@ const data = {
     //   ],
     // },
     {
-      title: 'Configurações',
-      url: '#',
+      title: "Configurações",
+      url: "#",
       icon: Settings2,
       items: [
         {
-          title: 'Integrações',
-          url: '/integrations',
+          title: "Integrações",
+          url: "/integrations",
         },
         {
-          title: 'Webhooks',
-          url: '#',
+          title: "Webhooks",
+          url: "#",
         },
         // {
         //   title: 'Team',
@@ -112,36 +119,38 @@ const data = {
   ],
   navSecondary: [
     {
-      title: 'Support',
-      url: '#',
+      title: "Support",
+      url: "#",
       icon: LifeBuoy,
     },
     {
-      title: 'Feedback',
-      url: '#',
+      title: "Feedback",
+      url: "#",
       icon: Send,
     },
   ],
   projects: [
     {
-      name: 'Dashboard',
-      url: '/dashboard',
+      name: "Dashboard",
+      url: "/dashboard",
       icon: Frame,
     },
     {
-      name: 'Orçamentos',
-      url: '/quotes',
+      name: "Orçamentos",
+      url: "/quotes",
       icon: PieChart,
     },
     {
-      name: 'Produtos',
-      url: '/products',
+      name: "Produtos",
+      url: "/products",
       icon: Map,
     },
   ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { user } = useContext(UserContext);
+  
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
@@ -167,7 +176,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
   );

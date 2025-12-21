@@ -30,7 +30,7 @@ export const useSignIn = () => {
       password: data.password,
       redirect: false,
     });
-
+    console.log("SignIn response:", response);
     if (response?.ok) {
       router.push("/dashboard");
     } else {

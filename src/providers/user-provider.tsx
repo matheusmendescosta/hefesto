@@ -1,23 +1,31 @@
-'use client';
+"use client";
 
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import { UserDTO } from "@/dto/user";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
 export type UserContextType = {
-  user: any;
-  setUser: Dispatch<SetStateAction<any>>;
+  user: UserDTO;
+  setUser: Dispatch<SetStateAction<UserDTO>>;
 };
 
 export const UserContext = React.createContext<UserContextType>({
   setUser: () => undefined,
-  user: {} as any,
+  user: {} as UserDTO,
 });
 
 type UserProviderProps = {
   children: React.ReactNode;
-  user: any;
+  user: UserDTO;
 };
 
-export const UserProvider = ({ children, user: userToSet }: UserProviderProps) => {
-  const [user, setUser] = useState<any>(userToSet);
-  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
+export const UserProvider = ({
+  children,
+  user: userToSet,
+}: UserProviderProps) => {
+  const [user, setUser] = useState<UserDTO>(userToSet);
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
 };

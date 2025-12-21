@@ -8,22 +8,12 @@ export async function middleware(request: NextRequest) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  if (token && 'role' in token) {
-    const userRole = token.role;
-
-    if (request.nextUrl.pathname === '/dashboard') {
-      if (userRole !== 'ADMIN') {
-        return NextResponse.redirect(new URL('/dashboard/posts', request.url));
-      }
-    }
-  }
-
   if (request.nextUrl.pathname === '/') {
     return NextResponse.redirect(new URL('/sign-in', request.url));
   }
 
   if (!token) {
-    return NextResponse.redirect(new URL('/api/auth/signin', request.url));
+    return NextResponse.redirect(new URL('/sign-in', request.url));
   }
 
   return NextResponse.next();
