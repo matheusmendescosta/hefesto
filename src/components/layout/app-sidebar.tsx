@@ -3,13 +3,17 @@
 import {
   Bot,
   FileChartLine,
+  FilePlusCorner,
   Frame,
+  Hammer,
   LifeBuoy,
   Map,
   PieChart,
   Send,
   Settings2,
   SquareTerminal,
+  Store,
+  Users,
 } from "lucide-react";
 import * as React from "react";
 import { useContext } from "react";
@@ -18,7 +22,6 @@ import { NavMain } from "@/components/layout/nav-main";
 import { NavProjects } from "@/components/layout/nav-projects";
 import { NavSecondary } from "@/components/layout/nav-secondary";
 import { NavUser } from "@/components/layout/nav-user";
-import { UserContext } from "@/providers/user-provider";
 import {
   Sidebar,
   SidebarContent,
@@ -28,13 +31,14 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { UserContext } from "@/providers/user-provider";
 
 const data = {
   navMain: [
     {
       title: "Orçamentos",
       url: "/quotes",
-      icon: SquareTerminal,
+      icon: FilePlusCorner,
       isActive: true,
       items: [
         {
@@ -44,47 +48,38 @@ const data = {
       ],
     },
     {
-      title: "Categorias",
-      url: "#",
-      icon: Bot,
+      title: "Produtos",
+      url: "/products",
+      icon: Store,
       items: [
         {
-          title: "Produtos",
-          url: "/products",
-        },
-        {
-          title: "Serviços",
-          url: "/services",
-        },
-        {
-          title: "Clientes",
-          url: "/clients",
+          title: "Novo Produto",
+          url: "/products/new",
         },
       ],
     },
-    // {
-    //   title: 'Documentation',
-    //   url: '#',
-    //   icon: BookOpen,
-    //   items: [
-    //     {
-    //       title: 'Introduction',
-    //       url: '#',
-    //     },
-    //     {
-    //       title: 'Get Started',
-    //       url: '#',
-    //     },
-    //     {
-    //       title: 'Tutorials',
-    //       url: '#',
-    //     },
-    //     {
-    //       title: 'Changelog',
-    //       url: '#',
-    //     },
-    //   ],
-    // },
+    {
+      title: "Serviços",
+      url: "/services",
+      icon: Hammer,
+      items: [
+        {
+          title: "Novo Serviço",
+          url: "/services/new",
+        },
+      ],
+    },
+    {
+      title: "Clientes",
+      url: "/clients",
+      icon: Users,
+      items: [
+        {
+          title: "Novo Cliente",
+          url: "/clients/new",
+        },
+      ],
+    },
     {
       title: "Configurações",
       url: "#",
@@ -98,24 +93,12 @@ const data = {
           title: "Webhooks",
           url: "#",
         },
-        // {
-        //   title: 'Team',
-        //   url: '#',
-        // },
-        // {
-        //   title: 'Billing',
-        //   url: '#',
-        // },
-        // {
-        //   title: 'Limits',
-        //   url: '#',
-        // },
       ],
     },
   ],
   navSecondary: [
     {
-      title: "Support",
+      title: "Suporte",
       url: "#",
       icon: LifeBuoy,
     },

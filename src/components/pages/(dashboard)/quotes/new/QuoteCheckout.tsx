@@ -31,11 +31,13 @@ export const QuoteCheckout = ({
     const optionsPrice = (s.selectedOptions || []).reduce((optSum, opt) => optSum + opt.price * s.quantity, 0);
     return sum + servicePrice + optionsPrice;
   }, 0);
+
   const productsTotal = products.reduce((sum, p) => {
     const productPrice = p.price * p.quantity;
     const optionsPrice = (p.selectedOptions || []).reduce((optSum, opt) => optSum + opt.price * p.quantity, 0);
     return sum + productPrice + optionsPrice;
   }, 0);
+  
   const total = getTotalAmount();
 
   return (
