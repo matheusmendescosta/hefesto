@@ -16,6 +16,7 @@ interface ServiceOption {
   name: string;
   description?: string | null;
   price: string;
+  selectedOptions?: ServiceOption[];
 }
 
 interface Service {
@@ -66,7 +67,7 @@ export const QuoteServicesTab = () => {
       }));
 
     const quoteService = {
-      id: Math.random().toString(36).substring(7),
+      id: selectedService.id,
       name: selectedService.name,
       description: selectedService.description,
       price: Number(selectedService.price),
@@ -268,7 +269,7 @@ export const QuoteServicesTab = () => {
                   </div>
                   {(service.selectedOptions || []).length > 0 && (
                     <div className="space-y-1 pl-2 border-l-2 border-muted">
-                      {service.selectedOptions.map((opt) => (
+                      {service.selectedOptions?.map((opt) => (
                         <div key={opt.id} className="flex justify-between text-xs">
                           <span className="text-muted-foreground">→ {opt.name}</span>
                           <span>+ R$ {opt.price.toFixed(2)}</span>

@@ -66,7 +66,7 @@ export const QuoteProductsTab = () => {
       }));
 
     const quoteProduct = {
-      id: Math.random().toString(36).substring(7),
+      id: selectedProduct.id,
       name: selectedProduct.name,
       description: selectedProduct.description,
       price: Number(selectedProduct.price),

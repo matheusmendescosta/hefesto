@@ -50,7 +50,6 @@ export const QuoteCheckout = ({
 
         <ScrollArea className="max-h-96 mb-6">
           <div className="space-y-4 pr-4">
-            {/* Cliente */}
             <div>
               <p className="text-xs text-muted-foreground font-semibold mb-2">
                 CLIENTE

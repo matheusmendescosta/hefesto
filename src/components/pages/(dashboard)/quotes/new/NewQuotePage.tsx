@@ -34,6 +34,27 @@ const NewQuotePageContent = () => {
     const quoteNumber = Math.floor(Math.random() * 1000000) + 1;
     const totalAmount = getTotalAmount();
 
+    const items = [
+      // Serviços principais com suas opções selecionadas
+      ...services.map((service) => ({
+        description: service.name,
+        quantity: service.quantity,
+        unitPrice: service.price,
+        total: service.price * service.quantity,
+        serviceId: service.id,
+        selectedOptionIds: (service.selectedOptions || []).map((option) => option.id),
+      })),
+      // Produtos principais com suas opções selecionadas
+      ...products.map((product) => ({
+        description: product.name,
+        quantity: product.quantity,
+        unitPrice: product.price,
+        total: product.price * product.quantity,
+        productId: product.id,
+        selectedOptionIds: (product.selectedOptions || []).map((option) => option.id),
+      })),
+    ];
+
     const quoteData: QuoteFormData = {
       number: quoteNumber,
       totalValue: totalAmount,
@@ -41,9 +62,7 @@ const NewQuotePageContent = () => {
         name: selectedClient.name,
         email: selectedClient.email,
       },
-      services: services.map(({ id, ...rest }) => rest),
-      products: products.map(({ id, ...rest }) => rest),
-      total: totalAmount,
+      items,
     };
 
     const success = await submitQuote(quoteData);

@@ -15,6 +15,7 @@ interface ProductOption {
 }
 
 interface QuoteService {
+  id: string;
   name: string;
   description?: string;
   price: number;
@@ -23,11 +24,22 @@ interface QuoteService {
 }
 
 interface QuoteProduct {
+  id: string;
   name: string;
   description?: string;
   price: number;
   quantity: number;
   selectedOptions?: ProductOption[];
+}
+
+export interface QuoteItem {
+  description: string;
+  quantity: number;
+  unitPrice: number;
+  total: number;
+  productId?: string;
+  serviceId?: string;
+  selectedOptionIds?: string[];
 }
 
 export interface QuoteFormData {
@@ -38,9 +50,7 @@ export interface QuoteFormData {
     name: string;
     email: string;
   };
-  services: QuoteService[];
-  products: QuoteProduct[];
-  total: number;
+  items: QuoteItem[];
 }
 
 export const useNewQuote = () => {
@@ -61,6 +71,13 @@ export const useNewQuote = () => {
     setApiError(null);
 
     try {
+      const payload = {
+        number: quoteData.number,
+        totalValue: quoteData.totalValue,
+        client: quoteData.client,
+        items: quoteData.items,
+      };
+
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/quotes`,
         {
@@ -69,7 +86,7 @@ export const useNewQuote = () => {
             Authorization: `Bearer ${session.user.access_token}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(quoteData),
+          body: JSON.stringify(payload),
         }
       );
 
