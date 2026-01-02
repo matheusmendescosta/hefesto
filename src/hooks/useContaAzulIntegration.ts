@@ -25,7 +25,7 @@ export function useContaAzulIntegration(enabled: boolean = true) {
       setLoading(true);
       setError(null);
       //eslint-disable-next-line
-      const jwtToken = (session as any)?.user?.token || (session as any)?.user?.accessToken;
+      const jwtToken = (session as any)?.user?.access_token || (session as any)?.user?.token || (session as any)?.user?.accessToken;
 
       if (!jwtToken) {
         setError('Usuário não autenticado');
@@ -70,7 +70,7 @@ export function useContaAzulIntegration(enabled: boolean = true) {
   const disconnect = useCallback(async () => {
     try {
       //eslint-disable-next-line
-      const jwtToken = (session as any)?.user?.token || (session as any)?.user?.accessToken;
+      const jwtToken = (session as any)?.user?.access_token || (session as any)?.user?.token || (session as any)?.user?.accessToken;
 
       if (!jwtToken) {
         throw new Error('Usuário não autenticado');

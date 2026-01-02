@@ -54,7 +54,13 @@ export type Client = {
   address: string | null;
   createdAt: string;
   updatedAt: string;
-}
+};
+
+export type QuoteItemOption = {
+  id: string;
+  name: string;
+  price: string;
+};
 
 export type QuoteItem = {
   id: string;
@@ -69,12 +75,13 @@ export type QuoteItem = {
   service: any | null;
   //eslint-disable-next-line @typescript-eslint/no-explicit-any
   product: any | null;
-}
+  selectedOptions: QuoteItemOption[];
+};
 
 export type Quote = {
   id: string;
   number: number;
-  status: 'DRAFT' | 'SENT' | 'APPROVED' | 'REJECTED' | 'PENDING';
+  status: "DRAFT" | "SENT" | "APPROVED" | "REJECTED" | "PENDING";
   validUntil: string | null;
   clientId: string;
   signedAt: string | null;
@@ -86,4 +93,4 @@ export type Quote = {
   userId: string;
   client: Client;
   items: QuoteItem[];
-}
+};

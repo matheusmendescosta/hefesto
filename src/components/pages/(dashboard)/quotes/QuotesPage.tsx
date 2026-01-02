@@ -16,10 +16,12 @@ import {
   Eye,
   Trash2
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useQuotes } from "./use-quotes";
 
 const QuotesPage = () => {
+  const router = useRouter();
   const [expandedQuote, setExpandedQuote] = useState<string | null>(null);
 
   const { quotes, isLoading, error } = useQuotes();
@@ -152,6 +154,7 @@ const QuotesPage = () => {
                           size="sm"
                           className="text-blue-400 hover:bg-gray-700 hover:text-blue-300"
                           title="Visualizar"
+                          onClick={() => router.push(`/quotes/${quote.id}`)}
                         >
                           <Eye className="h-4 w-4" />
                         </Button>
