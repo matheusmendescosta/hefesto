@@ -47,6 +47,7 @@ export const useNewService = () => {
         name: data.name,
         description: data.description,
         price: data.price,
+        syncToErp: true,
         options: data.options,
       }),
     })

@@ -1,12 +1,13 @@
 "use client";
 
-import { Service } from "@/dto/user";
+import { PaginationMeta, Service, ServicesResponse } from "@/dto/service";
 import { useSession } from "next-auth/react";
 import { useCallback, useEffect, useState } from "react";
 
 export const useServices = () => {
   const { data: session } = useSession();
   const [services, setServices] = useState<Service[]>([]);
+  const [meta, setMeta] = useState<PaginationMeta | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
@@ -24,12 +25,13 @@ export const useServices = () => {
     })
       .then(async (response) => {
         if (!response.ok) {
-          throw new Error("Failed to fetch products");
+          throw new Error("Failed to fetch services");
         }
         return response.json();
       })
-      .then((data) => {
-        setServices(data.services);
+      .then((data: ServicesResponse) => {
+        setServices(data.data);
+        setMeta(data.meta);
       })
       .catch((err) => {
         setError(err);
@@ -45,6 +47,7 @@ export const useServices = () => {
 
   return {
     services,
+    meta,
     isLoading,
     error,
   };

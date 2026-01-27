@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,6 +15,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import { useSignIn } from "./use-sign-in";
 
 export function SignInForm({
@@ -28,9 +28,9 @@ export function SignInForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle>Login com sua conta</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            Insira seu email abaixo para entrar na sua conta
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -48,12 +48,12 @@ export function SignInForm({
               </Field>
               <Field>
                 <div className="flex items-center">
-                  <FieldLabel htmlFor="password">Password</FieldLabel>
+                  <FieldLabel htmlFor="password">Senha</FieldLabel>
                   <a
                     href="#"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
-                    Forgot your password?
+                    Esqueceu sua senha?
                   </a>
                 </div>
                 <Input
@@ -71,10 +71,10 @@ export function SignInForm({
                   Login
                 </Button>
                 <Button variant="outline" type="button">
-                  Login with Google
+                  Entrar com Google
                 </Button>
                 <FieldDescription className="text-center">
-                  Don&apos;t have an account? <a href="#">Sign up</a>
+                  Não tem conta? <a href="#">Cadastre-se</a>
                 </FieldDescription>
               </Field>
             </FieldGroup>

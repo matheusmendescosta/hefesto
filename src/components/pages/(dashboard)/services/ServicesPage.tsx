@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/table";
 import { ChevronDown, Edit2, Eye, Trash2 } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { useServices } from "./use-services";
 
 const ServicesPage = () => {
@@ -22,6 +22,8 @@ const ServicesPage = () => {
   const toggleExpand = (serviceId: string) => {
     setExpandedService(expandedService === serviceId ? null : serviceId);
   };
+
+  console.log("Services:", services);
 
   return (
     <div className="flex flex-col h-screen w-full bg-gray-900 overflow-hidden">
@@ -44,12 +46,9 @@ const ServicesPage = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {services.map((service) => (
-                <>
-                  <TableRow
-                    className="border-b border-gray-700 hover:bg-gray-750"
-                    key={service.id}
-                  >
+              {services?.map((service) => (
+                <Fragment key={service.id}>
+                  <TableRow className="border-b border-gray-700 hover:bg-gray-750">
                     <TableCell className="text-gray-300 w-12">
                       <Button
                         variant="ghost"
@@ -140,7 +139,7 @@ const ServicesPage = () => {
                       </TableCell>
                     </TableRow>
                   )}
-                </>
+                </Fragment>
               ))}
             </TableBody>
           </Table>
